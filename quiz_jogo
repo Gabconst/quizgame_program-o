@@ -1,0 +1,161 @@
+from time import sleep
+import emoji
+
+
+def espaco(tempo):
+    print(' ')
+    sleep(tempo)
+
+
+def gabarito():
+    print("VOCÊ GABARITOU O JOGO!")
+    print("       ___________      ")
+    print("      '._==_==_=_.'     ")
+    print("      .-\\:      /-.    ")
+    print("     | (|:.     |) |    ")
+    print("      '-|:.     |-'     ")
+    print("        \\::.    /      ")
+    print("         '::. .'        ")
+    print("           ) (          ")
+    print("         _.' '._        ")
+    print("        '-------'       ")
+
+
+def bom():
+    print(emoji.emojize('VOCÊ FOI BEM! :thumbs_up:'))
+
+
+def mal():
+    print(emoji.emojize('VOCE FOI MAL... :thumbs_down:'))
+
+
+def zerou():
+    print("VOCE ZEROU O JOGO...")
+    print("    _______________         ")
+    print("   /               \       ")
+    print("  /                 \      ")
+    print("//                   \/\  ")
+    print("\|   XXXX     XXXX   | /   ")
+    print(" |   XXXX     XXXX   |/     ")
+    print(" |   XXX       XXX   |      ")
+    print(" |                   |      ")
+    print(" \__      XXX      __/     ")
+    print("   |\     XXX     /|       ")
+    print("   | |           | |        ")
+    print("   | I I I I I I I |        ")
+    print("   |  I I I I I I  |        ")
+    print("   \_             _/       ")
+    print("     \_         _/         ")
+    print("       \_______/           ")
+
+
+def opcao_valida(num, x):
+    while num.lower() not in ('a', 'b', 'c', 'd'):
+        print('Digite uma opção valida')
+        num = input('R: ')
+    if num.lower() == x:
+        print('ACERTOU!!!')
+        return True
+    else:
+        print('ERROU...')
+        return False
+
+
+print('╔══════════════════════════════════════╗')
+print('║        $ QUEM QUER SER UM $          ║')
+print('║             MILIONÁRIO?              ║')
+print('╚══════════════════════════════════════╝')
+print('Bem-Vindo Ao Jogo!')
+
+cont = 0
+cont_resp_certas = 0
+
+
+while True:
+    quer = input('Você deseja iniciar seu jogo?[S ou N]: ')
+    if quer in 'Ss':
+        print('Jogo Iniciando...')
+        sleep(1)
+        um = input('1) É o profissional que escreve, desenvolve ou faz a manutenção de software em um grande sistema '
+                   'ou alguém que desenvolve software para uso em computadores pessoais.'
+                   'Qual alternativa se enquadra melhor com a descrição?\n A - Mecanico\n B - Programador\n C - Administrador\n D - Gamer\n R: ')
+
+        if opcao_valida(um, 'b'):
+            cont_resp_certas += 1
+        espaco(1)
+
+        dois = input('2) Qual desses nomes é o de uma linguagem de programação?\n A - Windows\n B - Juventus\n C - Java\n D - Naza\n R: ')
+        if opcao_valida(dois, 'c'):
+            cont_resp_certas += 1
+        espaco(1)
+
+        tres = input('3) Qual o nome do programdor que inventou a linguagem python?\n A - Edgar Allan Poe\n B - Brendan Eich\n C - Bill Gates\n D - Guido Van Rossum\n R: ')
+        if opcao_valida(tres, 'd'):
+            cont_resp_certas += 1
+        espaco(1)
+
+        quatro = input('4) Conjunto de componentes lógicos de um computador ou sistema de processamento de dados; programa, rotina ou conjunto de instruções que '
+            'controlam o funcionamento de um computador. De acordo com a definição o que seria?\n A - Hardware\n B - Zipe\n C - Software\n D - Processador\n R: ')
+        if opcao_valida(quatro, 'c'):
+            cont_resp_certas += 1
+        espaco(1)
+
+        cinco = input('5) Armazena dados,faz descrições e organizações de diferentes tipos,tudo dependerá do objetivo/proposta.'
+                      'De acordo com a definição o que seria?\n A - Caixa De Dados\n B - Meadow\n C - Console\n D - Banco De Dados\n R: ')
+        if opcao_valida(cinco, 'd'):
+            cont_resp_certas += 1
+        espaco(1)
+
+        seis = input('6) Para definirmos uma função no Python, usamos qual comando?\n A - Dif\n B - Gif\n C - Def\n D - Log\n R: ')
+        if opcao_valida(seis, 'c'):
+            cont_resp_certas += 1
+        espaco(1)
+
+        sete = input('7) O que é uma IDE?\n '
+                      'A - Ambiente de desenvolvimento integrado\n B - Instituto do estudo\n C - Linguagem de programação\n D - Instituto de software\n R: ')
+        if opcao_valida(sete, 'a'):
+            cont_resp_certas += 1
+        espaco(1)
+
+        oito = input('8) Winston Walker Royce publicou nos anos 70,de forma erronea, um modelo de desenvolvimento de software.'
+                     'Que modelo é este?\n A - Waterfall\n B - Skyfly\n C - HexOrg\n D - React\n R: ')
+        if opcao_valida(oito, 'a'):
+            cont_resp_certas += 1
+        espaco(1)
+
+        nove = input('9)')
+        if opcao_valida(nove, 'b'):
+            cont_resp_certas += 1
+        espaco(1)
+
+        dez = input('10) ')
+        if opcao_valida(dez, 'd'):
+            cont_resp_certas += 1
+        espaco(1)
+
+        break
+
+    elif quer in 'Nn':
+        print('encerrando...')
+        cont_resp_certas = -1
+        break
+    elif quer not in 'Ss' and quer not in 'Nn':
+        print('DIGITE UMA OPÇÃO VÁLIDA ENTRE SIM E NÃO')
+
+
+if cont_resp_certas == 10:
+    gabarito()
+    print(f'Respostas Corretas = {cont_resp_certas}')
+
+elif cont_resp_certas > 5 and cont_resp_certas < 10:
+    bom()
+    print(f'Respostas Corretas = {cont_resp_certas}')
+
+elif cont_resp_certas < 5 and cont_resp_certas > 1:
+    mal()
+    print(f'Respostas Corretas = {cont_resp_certas}')
+
+elif cont_resp_certas == 0:
+    zerou()
+    print(f'Respostas Corretas = {cont_resp_certas}')
+
